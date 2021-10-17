@@ -390,3 +390,7 @@ src/cmake-build-debug
 src/config/configmanager.cpp
 otbr.exe.manifest
 config.lua.dist
+config.lua.dist
+src/config/configmanager.cpp
+config.lua.dist
+src/config/configmanager.cpp
