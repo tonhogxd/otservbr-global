@@ -394,3 +394,4 @@ config.lua.dist
 src/config/configmanager.cpp
 config.lua.dist
 src/config/configmanager.cpp
+src/config/configmanager.cpp
