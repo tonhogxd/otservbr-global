@@ -2926,26 +2926,12 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	}
 
 	// Version 12.70 start
-	msg.addByte(0x00); // bool ?
-	msg.addByte(0xA1); // Unknown
-
-	msg.add<uint16_t>(player->getMagicLevel());
-	msg.add<uint16_t>(player->getBaseMagicLevel());
-	// Loyalty bonus
-	msg.add<uint16_t>(player->getBaseMagicLevel());
-	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
-
-	static const skills_t SkillsIterator[] = {SKILL_FIST, SKILL_CLUB, SKILL_SWORD, SKILL_AXE, SKILL_DISTANCE, SKILL_SHIELD, SKILL_FISHING, SKILL_CRITICAL_HIT_CHANCE, SKILL_LIFE_LEECH_CHANCE, SKILL_MANA_LEECH_CHANCE};
-	for (skills_t skill : SkillsIterator) {
-		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(static_cast<uint8_t>(skill)), std::numeric_limits<uint16_t>::max()));
-		msg.add<uint16_t>(player->getBaseSkill(static_cast<uint8_t>(skill)));
-		// Loyalty bonus
-		msg.add<uint16_t>(player->getBaseSkill(static_cast<uint8_t>(skill)));
-		msg.add<uint16_t>(player->getSkillPercent(static_cast<uint8_t>(skill)) * 100);
-	}
-
-	msg.add<uint32_t>(player->getCapacity());
-	msg.add<uint32_t>(player->getCapacity());
+	msg.addByte(0x00); // 0x00 -> false, 0x01 -> true
+	// * Feature not implemented yet *
+	// if (true) {
+	//		msg.addByte(); // Element type getCipbiaElement()
+	//		msg.add<uint16_t>(); // Magic boost value
+	// }
 	// Version 12.70 end
 	writeToOutputBuffer(msg);
 }
