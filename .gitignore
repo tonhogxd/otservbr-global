@@ -387,3 +387,6 @@ vcpkg_installed
 
 # CLION
 src/cmake-build-debug
+src/config/configmanager.cpp
+otbr.exe.manifest
+config.lua.dist
